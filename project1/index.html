@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Garry Sehmbey - Full Stack Developer Portfolio Website. Java, React, Spring Boot, Web Development and Modern Apps.">
+
+<meta name="keywords" content="Garry Sehmbey, Full Stack Developer, Java Developer, React Developer, Spring Boot, Portfolio Website">
+
+<meta name="author" content="Garry Sehmbey">
+  <title>Garry Sehmbey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="auth-screen">
+    <h2>Authorized Access</h2>
+
+    <input type="text" id="nameInput" placeholder="Enter your name">
+
+    <button onclick="checkAccess()">Enter Website</button>
+  </div>
+
+  <div id="main-content" style="display: none;">
+
+    <!-- Tuhadi puri website ithon start hougi -->
+    <div class="hero">
+      <img src="myphoto.jpg" class="profile-pic">
+
+      <h1>Garry Sehmbey</h1>
+      <p>Full Stack Developer</p>
+
+      <a href="../mySecondproject-main/index.html"><button onclick="playMusic();">
+        View my profile
+      </button>
+    </div>
+
+  </div>
+
+  <audio id="bgMusic">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function checkAccess() {
+      const allowedNames = ["gurpreet", "garry", "navneet", "rubaani","prabhi","prabhisehmbey","ajay","pankaj","garrysehmbey","ajaymughraan","baljitkaur","baljit","preeti","harman","seerat","inderpal","sheru","jaggi","jagjitsehmbey","jagjit","aman","amandeep","amandeepsingh","laxman","laxmandass",];
+      const enteredName = document.getElementById("nameInput").value.toLowerCase().trim().replace(/\s+/g, "");
+
+      if (allowedNames.includes(enteredName)) {
+        document.getElementById("bgMusic").play();
+        document.getElementById("auth-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+        
+setTimeout(() => {
+  document.getElementById("main-content").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}, 100);
+}
+         else {
+        alert("Access Denied");
+      }
+    }
+
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play();
+      setTimeout(() => {
+      alert('Mission in Progress 🚀 More exciting updates coming soon!---press "OK" for stop music.');
+
+      music.pause();
+      music.currentTime = 0;
+    }, 300);
+    }
+  </script>
+
+  <!-- Vercel Web Analytics -->
+  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+</body>
+</html>
